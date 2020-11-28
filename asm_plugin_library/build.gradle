@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+
+dependencies {
+    implementation files('src/main/libs/booster-android-api.jar')
+    implementation files('src/main/libs/booster-android-instrument.jar')
+
+}
+
+
+
+//上传到nexus私服
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../local_repo'))
+            pom.version = "1.0.0"
+            pom.artifactId = "asm_plugin_library"
+            pom.groupId = "lanshifu.plugin.library"
+            pom.name = "asm_plugin_library"
+            pom.packaging = 'aar'
+        }
+    }
+}

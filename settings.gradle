@@ -1,0 +1,3 @@
+include ':app'
+include ':asm_plugin_library'
+rootProject.name = "AndroidTransform"
