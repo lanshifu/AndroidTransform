@@ -1,13 +1,23 @@
-apply plugin: 'java'
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'maven'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 30
+
+    }
+}
 
 dependencies {
-    implementation files('src/main/libs/booster-android-api.jar')
-    implementation files('src/main/libs/booster-android-instrument.jar')
 
 }
 

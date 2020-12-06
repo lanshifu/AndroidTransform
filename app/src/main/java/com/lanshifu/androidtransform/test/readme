@@ -1,0 +1,3 @@
+javac -classpath ~/Downloads/AndroidTransform/app/libs/booster-android-api.jar Test.java
+
+java -classpath asm-all-5.2.jar org.objectweb.asm.util.ASMifier Test.class

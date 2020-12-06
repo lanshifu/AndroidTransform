@@ -8,6 +8,7 @@ buildscript {
     }
 
     repositories {
+        maven { url 'local_repo' }
         google()
         jcenter()
         maven { url 'https://oss.sonatype.org/content/repositories/public/' }
@@ -22,11 +23,13 @@ buildscript {
 
         /* 👇👇👇👇 引用 Booster Gradle 插件 👇👇👇👇 */
         classpath "com.didiglobal.booster:booster-gradle-plugin:$booster_version"
+        classpath 'lanshifu.methodtime.plugin:asm_methodtime_plugin:1.0.0'
     }
 }
 
 allprojects {
     repositories {
+        maven { url 'local_repo' }
         google()
         jcenter()
         maven { url 'https://oss.sonatype.org/content/repositories/public/' }

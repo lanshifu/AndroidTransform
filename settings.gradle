@@ -1,3 +1,5 @@
+include ':asm_methodtime_plugin'
 include ':app'
 include ':asm_plugin_library'
+include ':asm_fastclick_plugin'
 rootProject.name = "AndroidTransform"

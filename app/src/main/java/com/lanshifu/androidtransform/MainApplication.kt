@@ -2,7 +2,6 @@ package com.lanshifu.androidtransform
 
 import android.app.Application
 import android.util.Log
-import com.lanshifu.asm_plugin_library.thread.ShadowAsyncTask
 
 /**
  * @author lanxiaobin

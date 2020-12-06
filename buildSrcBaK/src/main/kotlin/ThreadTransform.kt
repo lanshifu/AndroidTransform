@@ -5,6 +5,8 @@ import com.didiglobal.booster.transform.ArtifactManager
 import com.didiglobal.booster.transform.TransformContext
 import com.didiglobal.booster.transform.asm.*
 import com.google.auto.service.AutoService
+import groovyjarjarasm.asm.tree.LocalVariableNode
+import org.gradle.internal.impldep.com.fasterxml.jackson.databind.node.LongNode
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.tree.*
 import java.io.PrintWriter
@@ -132,13 +134,6 @@ class ThreadTransform : ClassTransformer {
 
                 //INVOKEVIRTUAL java/lang/Thread.start ()V
                 "start()V" -> {
-                    method.instructions.insertBefore(
-                        this, LdcInsnNode(
-                            makeThreadName(
-                                klass.className
-                            )
-                        )
-                    )
                     method.instructions.insertBefore(
                         this, MethodInsnNode(
                             Opcodes.INVOKESTATIC,

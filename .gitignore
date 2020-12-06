@@ -18,3 +18,4 @@ local.properties
 /app/build/
 /app/build/intermediates/javac/debug/classes/
 /buildSrc/build/
+/.idea/

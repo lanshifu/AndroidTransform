@@ -9,28 +9,10 @@ import android.util.Log
 class Test {
 
 
-    init {
-        Log.d("TAG", "logd")
-    }
-
-    fun threadTest(){
-        Thread{
-            Log.d("TAG", "Thread run")
-
-        }.apply {
-            name = "thread name"
-        }.start()
-    }
-
-
-    fun returnThreadTest():Thread{
-        var thread = Thread()
-        return thread
-    }
-
-    fun add():Int{
+    fun add(): Int {
         val i = 11
         val j = 22
-        return i+j
+        val k = i +j
+        return k
     }
 }
