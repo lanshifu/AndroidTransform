@@ -3,7 +3,7 @@ plugins {
     id 'kotlin-android'
 //    id 'com.didiglobal.booster'
 
-//    id 'lanshifu.asm.methodtime'
+    id 'lanshifu.asm.methodtime'
 }
 
 

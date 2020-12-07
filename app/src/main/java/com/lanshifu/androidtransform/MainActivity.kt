@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.HandlerThread
 import android.util.Log
+import android.widget.Button
+import com.lanshifu.asm_plugin_library.MethodTimeUtil
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
@@ -12,6 +14,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         threadTest()
+
+        findViewById<Button>(R.id.btnCollection).setOnClickListener {
+            methodCost()
+        }
+
+    }
+
+    private fun methodCost() {
+        val obtainMethodCostData = MethodTimeUtil.obtainMethodCostData()
+        for (obtainMethodCostDatum in obtainMethodCostData) {
+            Log.d("MainActivity", "onCreate: ${obtainMethodCostDatum}")
+        }
+
     }
 
     private fun threadTest() {
@@ -26,6 +41,8 @@ class MainActivity : AppCompatActivity() {
             Thread.sleep(500000)
 
         }.start()
+
+        Thread.sleep(500)
 
     }
 

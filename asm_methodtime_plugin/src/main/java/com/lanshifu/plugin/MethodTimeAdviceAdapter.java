@@ -15,11 +15,11 @@ public class MethodTimeAdviceAdapter extends AdviceAdapter {
     private String methodName = "";
     private String className = "";
     private String desc = "";
-    private int maxSectionNameLength = 127;
+    private int maxSectionNameLength = 254;
 
 
-    protected MethodTimeAdviceAdapter(int api, MethodVisitor methodVisitor, int access, String className, String methodname, String descriptor) {
-        super(api, methodVisitor, access, methodname, descriptor);
+    protected MethodTimeAdviceAdapter(int api, MethodVisitor methodVisitor, int access, String className, String methodName, String descriptor) {
+        super(api, methodVisitor, access, methodName, descriptor);
 
         this.access = access;
         this.className = className;

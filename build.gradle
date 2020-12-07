@@ -15,7 +15,8 @@ buildscript {
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.1"
+        // 更新Android Gradle插件3.6.0出现java.lang.NoClassDefFoundError: Failed resolution of: Landroidx/appcompat/R$drawable;错误
+        classpath "com.android.tools.build:gradle:3.5.0"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
