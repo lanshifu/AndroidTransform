@@ -1,9 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-//    id 'com.didiglobal.booster'
-
-    id 'lanshifu.asm.methodtime'
+//    id 'lanshifu.asm.methodtime'
+    id 'com.lansifu.image_monitor'
 }
 
 
@@ -49,4 +48,8 @@ dependencies {
 
     //asm 插桩需要的library
     implementation project(path: ':asm_plugin_library')
+}
+
+ImageMonitor {
+    open false
 }

@@ -1,0 +1,18 @@
+ext {
+    version = '1.0'
+    url = 'http://www.baidu.com'
+}
+
+
+apply plugin:CustomPlugin
+class CustomPlugin implements Plugin<Project>{
+    @Override
+    void apply(Project project) {
+
+        project.task("CustomPluginTask") {
+            doLast {
+                println("CustomPluginTask doLast")
+            }
+        }
+    }
+}

@@ -16,15 +16,8 @@ buildscript {
     }
     dependencies {
         // 更新Android Gradle插件3.6.0出现java.lang.NoClassDefFoundError: Failed resolution of: Landroidx/appcompat/R$drawable;错误
-        classpath "com.android.tools.build:gradle:3.5.0"
+        classpath "com.android.tools.build:gradle:4.1.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-
-        /* 👇👇👇👇 引用 Booster Gradle 插件 👇👇👇👇 */
-        classpath "com.didiglobal.booster:booster-gradle-plugin:$booster_version"
-        classpath 'lanshifu.methodtime.plugin:asm_methodtime_plugin:1.0.0'
     }
 }
 
