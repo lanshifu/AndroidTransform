@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.os.HandlerThread
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
+import androidx.appcompat.widget.AppCompatImageView
+import com.lanshifu.asm_plugin_library.ImageMonitorImageView
 import com.lanshifu.asm_plugin_library.MethodTimeUtil
 import kotlin.concurrent.thread
 
@@ -19,6 +22,10 @@ class MainActivity : AppCompatActivity() {
             methodCost()
         }
 
+        findViewById<ImageMonitorImageView>(R.id.imageView).setImageResource(R.mipmap.bg)
+
+
+        CrashMonitor.init(application)
     }
 
     private fun methodCost() {

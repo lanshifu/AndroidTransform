@@ -35,7 +35,7 @@ repositories {
 sourceSets {
     main {
         java {
-            srcDirs += []
+            srcDirs += ['src/main/kotlin', 'src/main/java']
         }
         kotlin {
             srcDirs += ['src/main/kotlin', 'src/main/java']
@@ -60,8 +60,14 @@ compileTestKotlin {
 }
 
 dependencies {
+
+    implementation files('libs/booster-android-api.jar')
+    implementation files('libs/booster-android-instrument.jar')
+
     compileOnly localGroovy()
     compileOnly gradleApi()
+    implementation 'com.android.tools.build:gradle:4.1.1'
+
     //ASM相关依赖
     implementation 'org.ow2.asm:asm:7.1'
     implementation 'org.ow2.asm:asm-commons:7.1'
