@@ -22,7 +22,8 @@ class MainActivity : AppCompatActivity() {
             methodCost()
         }
 
-        findViewById<ImageMonitorImageView>(R.id.imageView).setImageResource(R.mipmap.bg)
+        findViewById<ImageMonitorImageView>(R.id.imageView).setImageResource(R.mipmap.main_comment_bg)
+        findViewById<ImageMonitorImageView>(R.id.imageView2).setImageResource(R.mipmap.main_comment_bg)
 
 
         CrashMonitor.init(application)
