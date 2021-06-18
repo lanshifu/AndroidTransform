@@ -12,15 +12,14 @@ import org.objectweb.asm.tree.MethodInsnNode
 import org.objectweb.asm.tree.MethodNode
 import org.objectweb.asm.tree.TypeInsnNode
 
-/**
- * @Author LiABao
- * @Since 2020/10/14
- */
+
 class ImageViewAsmHelper : AsmHelper {
 
     companion object {
-        const val ImageView = "androidx/appcompat/widget/AppCompatImageView"
+        const val ImageView = "android/widget/ImageView"
+        const val AppCompatImageView = "androidx/appcompat/widget/AppCompatImageView"
         const val ImageMonitorImageView = "com/lanshifu/asm_plugin_library/ImageMonitorImageView"
+
     }
 
     override fun modifyClass(srcClass: ByteArray?): ByteArray {
@@ -29,16 +28,29 @@ class ImageViewAsmHelper : AsmHelper {
         //1 将读入的字节转为classNode
         classReader.accept(classNode, 0)
         //2 对classNode的处理逻辑
+        info("ImageViewAsmHelper modifyClass name = ${classNode.name}")
         val iterator: Iterator<MethodNode> = classNode.methods.iterator()
         while (iterator.hasNext()) {
             val method = iterator.next()
             method.instructions?.iterator()?.forEach {
                 when (it.opcode) {
                     Opcodes.NEW -> {
-                        if (it is TypeInsnNode && it.desc == ImageView) {
-                            it.transformNew(classNode, method)
+                        if (it is TypeInsnNode) {
+                            //(it.desc == ImageView || it.desc == AppCompatImageView)
+                            info("ImageViewAsmHelper transformNew,desc=${it.desc}")
+//                            it.transformNew(classNode, method)
                         }
 
+                    }
+
+                    Opcodes.INVOKESPECIAL -> {
+                        if (it is MethodInsnNode) {
+                            if (classNode.name != ImageMonitorImageView && it.owner == ImageView && it.name== "<init>"){
+                                info("ImageViewAsmHelper owner=${it.owner},name=${it.name},desc=${it.desc},classNode.name=${classNode.name}")
+                                it.owner = ImageMonitorImageView
+                            }
+
+                        }
                     }
                 }
             }
@@ -60,10 +72,10 @@ class ImageViewAsmHelper : AsmHelper {
             this.desc = ImageMonitorImageView
             //INVOKESPECIAL androidx/appcompat/app/AlertDialog$Builder.<init> (Landroid/content/Context;)V
             init.apply {
-                if (this.desc == "(Landroid/content/Context;)V") {
+//                if (this.desc == "(Landroid/content/Context;)V") {
                     owner = ImageMonitorImageView
                     info("ImageViewAsmHelper transformNew,className=${klass.name},methodName=${method.name},method.desc=${method.desc},owner = ${init.owner}")
-                }
+//                }
             }
         }
 

@@ -16,7 +16,7 @@ import org.gradle.api.Project
  */
 class ImageViewTransform(private val project: Project) : Transform() {
     override fun getName(): String {
-        return "AutoSizeTransform"
+        return "ImageViewTransform"
     }
 
     override fun getInputTypes(): MutableSet<QualifiedContent.ContentType> {

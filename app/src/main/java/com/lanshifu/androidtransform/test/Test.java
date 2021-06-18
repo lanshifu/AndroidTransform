@@ -1,6 +1,8 @@
 package com.lanshifu.androidtransform.test;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.ImageView;
 
 /**
  * @author lanxiaobin
@@ -14,11 +16,13 @@ class Test {
         return k;
     }
 
-    void methodTime(){
+    void methodTime( Context context){
         long startTime = System.currentTimeMillis();
         long cost = System.currentTimeMillis() - startTime;
 
         Log.v("","cost:" + cost);
+
+        new ImageView((context));
 
     }
 }

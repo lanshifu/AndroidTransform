@@ -22,9 +22,11 @@ class MainActivity : AppCompatActivity() {
             methodCost()
         }
 
-        findViewById<ImageMonitorImageView>(R.id.imageView).setImageResource(R.mipmap.main_comment_bg)
-        findViewById<ImageMonitorImageView>(R.id.imageView2).setImageResource(R.mipmap.main_comment_bg)
+        findViewById<ImageView>(R.id.imageView).setImageResource(R.mipmap.main_comment_bg)
+        findViewById<ImageView>(R.id.imageView2).setImageResource(R.mipmap.main_comment_bg)
 
+
+        val imageView = ImageView(this)
 
         CrashMonitor.init(application)
     }

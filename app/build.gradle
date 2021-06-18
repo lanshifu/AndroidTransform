@@ -2,9 +2,10 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 //    id 'lanshifu.asm.methodtime'
-    id 'com.lansifu.image_monitor'
 //    id 'com.lansifu.image_monitor2'
 }
+
+apply plugin: 'com.lansifu.image_monitor'
 
 
 android {
